@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="bioTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About TutorTinder" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="40.0" fitWidth="340.0" layoutX="135.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/Tuutoriprofil2.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="101.0" layoutY="114.0" prefHeight="3.0" prefWidth="412.0" />
+      <Button layoutX="490.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToSceneBack" prefHeight="40.0" prefWidth="104.0" style="-fx-border-radius: 50%;" text="Main Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutY="467.0" mnemonicParsing="false" onAction="#connectTutor" prefHeight="155.0" prefWidth="301.0" style="-fx-background-color: green;" text="Connect" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Button>
+      <Button layoutX="300.0" layoutY="467.0" mnemonicParsing="false" onAction="#getNextTutor" prefHeight="155.0" prefWidth="301.0" style="-fx-background-color: red;" text="Next" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Button>
+      <Label fx:id="nameLabel" alignment="TOP_CENTER" layoutX="103.0" layoutY="53.0" prefHeight="47.0" prefWidth="394.0" text="Tupu Ankka">
+         <font>
+            <Font name="Trebuchet MS" size="40.0" />
+         </font></Label>
+      <Label fx:id="majorLabel" alignment="TOP_CENTER" layoutX="111.0" layoutY="150.0" prefHeight="47.0" prefWidth="379.0" text="Liiketalous">
+         <font>
+            <Font name="Trebuchet MS" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="skillLabel" alignment="CENTER" layoutX="118.0" layoutY="245.0" prefHeight="155.0" prefWidth="379.0" style="-fx-background-color: white;" text="Excel, Matematiikka ja&#10;Power Point" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Trebuchet MS" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="53.0" text="Nimi:">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="154.0" prefHeight="39.0" prefWidth="113.0" text="Pääaine: ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="292.0" prefHeight="39.0" prefWidth="113.0" text="Taidot:">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
