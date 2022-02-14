@@ -1,6 +1,6 @@
 package application;
 
-
+//tämä luokka luo tuutor-olion
 public class Users {
 	private String name;
 	private String major;

@@ -17,31 +17,44 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+//tämä luokka hakee käyttäjät tietokannasta ja vaihtaa seuraavaan next-nappulasta
+//connect-nappulasta aukeaa uusi ikkuna jossa valitun tuutorin yhteystiedot
 public class controller {
 
  private Stage stage;
  private Scene scene;
  private Parent root;
  private UsersList userList;
+ private String email;
+ private ProfileImages profileImages;
  @FXML
  Label nameLabel;
  @FXML
  Label majorLabel;
  @FXML
  Label skillLabel;
+ @FXML 
+ Label connectionSection;
+ @FXML 
+ ImageView profilePicture;
+ 
+ Image myImage = new Image(getClass().getResourceAsStream("image.png"));
 
-
+//hakee käyttäjät tietokannasta, tallentaa paikalliseen users list:iin
  public void initialize() throws SQLException {
 	 	UsersList userList = new UsersList();
-		
+		ProfileImages profileImages = new ProfileImages();
+	 	
 		// variables
 	     final String url = "jdbc:mysql:///tuutoritinder";
 	     final String user = "root";
-	     final String password = "Password@0";
+	     final String password = "root";
 	     System.out.println("2");
 	     // establish the connection
 	     Connection con = DriverManager.getConnection(url, user, password);
@@ -79,10 +92,10 @@ public class controller {
 	     rs.close();
 	     st.close();
 	     con.close();
-	     
-	     initData(userList);
+	     //tallentaa profiilin user list:iin
+	     initData(userList, profileImages);
  }
- 
+ //ohjaa takaisin main menuun
  public void switchToSceneBack(ActionEvent event) throws IOException {
 	  root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
 	  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -90,6 +103,7 @@ public class controller {
 	  stage.setScene(scene);
 	  stage.show();
 	 }
+//ohjaa seuraavaan profiiliin	 
  public void getNextTutor(ActionEvent event) {
  
      Users nextUser = this.userList.getUser();
@@ -97,18 +111,37 @@ public class controller {
 	 nameLabel.setText(nextUser.getName());
 	 majorLabel.setText(nextUser.getMajor());
 	 skillLabel.setText(nextUser.getSkill());
+	 this.email = nextUser.getEmail();
+	 profilePicture.setImage(profileImages.getProfileImage());
  }
- public void connectTutor(ActionEvent event)
+ //connect-nappulan painaminen luo pop up-ilmoituksen valitulle tuutorille
+ public void connectTutor(ActionEvent event) throws IOException, SQLException
  {
-	 Users userInfoEmail = this.userList.getUser();
 	 Alert a = new Alert(AlertType.NONE);
 	 a.setAlertType(AlertType.INFORMATION);
 	 a.show();
-	 a.setHeaderText(userInfoEmail.getEmail());
+	 a.setHeaderText("You made a new connection!\nGo to connections page to contact your new tuudors.");
+	 
+	 String connectionText = nameLabel.getText();
+	 String connectionText2 = this.email;
+	 System.out.println(connectionText);
+	 
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Connections.fxml"));
+		root = loader.load();
+		
+		ControllerConnections controllerConnections = loader.getController();
+		controllerConnections.setConnectionText(connectionText, connectionText2);
+		
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	 
  }
- 
- public void initData(UsersList userList) {
+ //asettaa tietokannasta haetut tiedot paikallisiin muuttujiin
+ public void initData(UsersList userList, ProfileImages profileImages) {
 	 this.userList = userList;
+	 this.profileImages = profileImages;
  }
 
  

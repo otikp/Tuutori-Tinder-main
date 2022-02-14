@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerConnections">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="70.0" layoutX="27.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" width="565.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="70.0" layoutX="27.0" layoutY="451.0" stroke="BLACK" strokeType="INSIDE" width="565.0" />
+      <Label layoutX="10.0" prefHeight="147.0" prefWidth="580.0" text="Contact your new Tuutori" textFill="WHITE">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="connectionSection" alignment="TOP_LEFT" layoutX="128.0" layoutY="381.0" prefHeight="54.0" prefWidth="456.0" text="testi">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="connectionSection2" alignment="TOP_LEFT" layoutX="128.0" layoutY="467.0" prefHeight="54.0" prefWidth="456.0" text="Testi">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="532.0" layoutY="7.0" mnemonicParsing="false" onAction="#switchToSceneBack" text="Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Line endX="288.0" layoutX="294.0" layoutY="135.0" startX="-276.0" stroke="WHITE" />
+      <Label fx:id="connectionSection1" alignment="TOP_LEFT" layoutX="40.0" layoutY="381.0" prefHeight="54.0" prefWidth="88.0" text="Name:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="connectionSection11" alignment="TOP_LEFT" layoutX="41.0" layoutY="467.0" prefHeight="54.0" prefWidth="74.0" text="Email:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="204.0" fitWidth="262.0" layoutX="177.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@AkuAnkka.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
